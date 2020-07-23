@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/9239cd55de.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="src/styles.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="card w-50">
+            <div class="card-body">
+                <form id="search-form">
+                    <div class="row">
+                        <div class="col-8 pr-0 mt-4">
+                            <input type="text" class="form-control" placeholder="Search City" id="searchCity" />
+                        </div>
+                        <div class="col-1 pl-0 mt-4">
+                            <button class="btn btn-outline-primary" type="submit" id="searchButton">
+                                🔍
+                            </button>
+                        </div>
+                        <div class="col-1 pl-0 mt-4">
+                            <button type="button" class="btn btn-info" id="current-button">Current</button>
+                        </div>
+
+                    </div>
+                </form>
+                <br />
+                <div class="card ml-3" style="width: 18rem;">
+                    <div class="card-body day">
+                        <div class="row">
+                            <div class="col-5">
+                                <h6 class="card-subtitle mb-2" id="currentDescription">Sunny</h6>
+                                <h5 class="card-title"> <span id="currentTemp"> 18 </span> <sup>
+                                        <a href="#" id="celsius"> ℃ </a> |
+                                        <a href="#" id="fahrenheit"> ℉ </a>
+                                    </sup></h5>
+                            </div>
+                            <div class="col-6">
+                                <p class="card-text">
+                                    <div class="sun"> ☀️
+                                    </div>
+                                    <br />
+                                    <span class="city" id="currentCity">
+                                        <strong> Vancouver</strong>
+                                    </span>
+                                    <div>
+                                        <small>
+                                            Humidity:
+                                            <span id="humidity"> </span>
+                                        </small>
+                                    </div>
+
+                                    <div>
+                                        <small>
+                                            Wind:
+                                            <span id="wind"> </span>
+                                        </small>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                        <small class="current">Today </small>
+                        <div class="date">Sunday 8:48</div>
+                    </div>
+                </div>
+                <br />
+
+                <div class="card">
+                    <div class="card-body day">
+                        23°/11°
+                        <br />
+                        Monday <span class="emoji4"> 🌧</span>
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-body day">
+                        22°/13°
+                        <br />
+                        Tuesday <span class="emoji3"> 🌤</span>
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-body day">
+                        20°/11°
+                        <br />
+                        Wednesday <span class="emoji"> 🌧</span>
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-body day">
+                        23°/14°
+                        <br />
+                        Thursday <span class="emoji2">🌧</span>
+                    </div>
+                </div>
+                <br />
+                <div class="card">
+                    <div class="card-body day">
+                        24°/14°
+                        <br />
+                        Friday <span class="emoji1 last">☁️ </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/index.js">
+
+    </script>
+</body>
+
+</html>
