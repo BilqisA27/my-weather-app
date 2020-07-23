@@ -1,0 +1,85 @@
+.card.w-50 {
+  border: 2px solid #1e3857;
+}
+.card-text,
+.sun,
+.date,
+.current {
+  position: relative;
+}
+.card-text {
+  bottom: 20px;
+}
+.sun {
+  font-size: 70px;
+  left: 12px;
+  line-height: 15px;
+  padding-top: 20px;
+}
+
+.city {
+  font-size: 20px;
+  display: block;
+  font-family: "Fjalla One", sans-serif;
+  color: bisque;
+}
+
+.btn.btn-outline-success {
+  margin: 0;
+}
+.card-body.day {
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+}
+.card-body {
+  background-image: linear-gradient(to top, #a3bded 0%, #476c91 100%);
+  margin: 0;
+  color: bisque;
+}
+.card-subtitle,
+.card-title {
+  font-size: 28px;
+  color: bisque;
+}
+
+sup {
+  font-size: 15px;
+}
+
+.emoji,
+.emoji1,
+.emoji2,
+.emoji3,
+.emoji4 {
+  position: relative;
+  font-size: 40px;
+  line-height: 2px;
+}
+.emoji {
+  left: 335px;
+}
+.emoji1 {
+  left: 370px;
+}
+.emoji2 {
+  left: 350px;
+}
+.emoji3 {
+  left: 355px;
+}
+.emoji4 {
+  left: 358px;
+}
+.emoji1.last {
+  margin-bottom: 10px;
+}
+.date {
+  left: 105px;
+}
+.current {
+  top: 30px;
+}
+
+.btn.btn-outline-primary {
+  position: relative;
+  right: 1px;
+}
