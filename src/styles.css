@@ -2,7 +2,6 @@
   border: 2px solid #1e3857;
 }
 .card-text,
-.sun,
 .date,
 .current {
   position: relative;
@@ -12,16 +11,33 @@
 }
 .sun {
   font-size: 70px;
-  left: 12px;
   line-height: 15px;
-  padding-top: 20px;
+}
+
+.date {
+  top: -45px;
+}
+
+.card-subtitle {
+  position: relative;
+  top: -40px;
+}
+
+.temp-description {
+  position: relative;
+  left: 120px;
+  top: -90px;
 }
 
 .city {
-  font-size: 20px;
+  font-size: 25px;
   display: block;
   font-family: "Fjalla One", sans-serif;
   color: bisque;
+}
+
+.card.ml-3 {
+  max-height: 220px;
 }
 
 .btn.btn-outline-success {
@@ -35,7 +51,7 @@
   margin: 0;
   color: bisque;
 }
-.card-subtitle,
+
 .card-title {
   font-size: 28px;
   color: bisque;
@@ -71,12 +87,6 @@ sup {
 }
 .emoji1.last {
   margin-bottom: 10px;
-}
-.date {
-  left: 105px;
-}
-.current {
-  top: 30px;
 }
 
 .btn.btn-outline-primary {
