@@ -34,6 +34,7 @@ function whatCity(event) {
 }
 
 function showCurrentLocation(response) {
+  console.log(response.data);
   let weatherDescription = document.querySelector("#currentDescription");
   let currentCity = document.querySelector("#currentCity");
   let currentTemp = document.querySelector("#currentTemp");
@@ -44,11 +45,17 @@ function showCurrentLocation(response) {
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let temp = Math.round(response.data.main.temp);
+  let iconElement = document.querySelector("#icon-element");
   weatherDescription.innerHTML = `${descriptionNow}`;
   currentCity.innerHTML = `${cityNow}`;
   currentWind.innerHTML = `${wind}`;
   currentHumidity.innerHTML = `${humidity}`;
   currentTemp.innerHTML = `${temp}`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", `${descriptionNow}`);
 }
 function showPosition(position) {
   let apiKey = "adc304e0d775bfcd34cc43d2a3830fc0";
