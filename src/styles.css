@@ -93,3 +93,11 @@ sup {
   position: relative;
   right: 1px;
 }
+
+.temp-description .active {
+  color: bisque;
+  cursor: default;
+}
+.temp-description .active:hover {
+  text-decoration: none;
+}
