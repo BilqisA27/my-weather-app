@@ -101,3 +101,7 @@ sup {
 .temp-description .active:hover {
   text-decoration: none;
 }
+
+#current-description::first-letter {
+  text-transform: uppercase;
+}

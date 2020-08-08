@@ -1,41 +1,75 @@
-let now = new Date();
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
-let hours = now.getHours();
-let minutes = now.getMinutes();
-
-if (hours < 10) {
-  hours = "0" + hours;
-}
-if (minutes < 10) {
-  minutes = "0" + minutes;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
 }
 
-let displayCurrentDate = document.querySelector(".date");
-displayCurrentDate.innerHTML = `${day} ${hours}:${minutes}`;
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
 
-function whatCity(event) {
-  event.preventDefault();
+  return `${hours}:${minutes}`;
+}
+
+function showForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+  console.log(response.data.list);
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.list[index];
+    forecastElement.innerHTML += `
+    <div class="card other-day" >
+   <div class="card-body day">
+    ${Math.round(forecast.main.temp_max)}°/${Math.round(
+      forecast.main.temp_min
+    )}°
+     <br />
+    ${formatHours(forecast.dt * 1000)}
+     <span class="emoji4"> <img src="http://openweathermap.org/img/wn/${
+       forecast.weather[0].icon
+     }@2x.png" alt=""> 
+    </span>
+   </div>
+   </div>
+  `;
+  }
+}
+function search(city) {
   let apiKey = "adc304e0d775bfcd34cc43d2a3830fc0";
-  let city = document.querySelector("#currentCity");
-  let newCity = document.querySelector("#searchCity");
-  city.innerHTML = newCity.value;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city.innerHTML}&units=metric&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showCurrentLocation);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city},us&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showForecast);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let newCity = document.querySelector("#searchCity");
+  search(newCity.value);
 }
 
 function showCurrentLocation(response) {
-  console.log(response.data);
-  let weatherDescription = document.querySelector("#currentDescription");
+  let weatherDescription = document.querySelector("#current-description");
   let currentCity = document.querySelector("#currentCity");
   let currentTemp = document.querySelector("#currentTemp");
   let currentWind = document.querySelector("#wind");
@@ -46,6 +80,8 @@ function showCurrentLocation(response) {
   let humidity = response.data.main.humidity;
   let temp = Math.round(response.data.main.temp);
   let iconElement = document.querySelector("#icon-element");
+  let displayCurrentDate = document.querySelector(".date");
+  displayCurrentDate.innerHTML = formatDate(response.data.dt * 1000);
   celsiusTemperature = response.data.main.temp;
   weatherDescription.innerHTML = `${descriptionNow}`;
   currentCity.innerHTML = `${cityNow}`;
@@ -87,13 +123,15 @@ function changeToCelsius(event) {
   celsiusElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+search("Brazil");
+
 let celsiusTemperature = null;
 
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getPosition);
 
 let clickButton = document.querySelector("#search-form");
-clickButton.addEventListener("submit", whatCity);
+clickButton.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit");
 fahrenheitLink.addEventListener("click", changeToFahrenheit);
