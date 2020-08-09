@@ -12,15 +12,31 @@
 .sun {
   font-size: 70px;
   line-height: 15px;
+  position: relative;
+  bottom: 50px;
+  right: 20px;
 }
 
+.current-details {
+  position: relative;
+  bottom: 80px;
+}
+
+#currentTemp {
+  font-size: 40px;
+}
 .date {
+  top: -45px;
+}
+
+.last-updated {
+  position: relative;
   top: -45px;
 }
 
 .card-subtitle {
   position: relative;
-  top: -40px;
+  top: -45px;
 }
 
 .temp-description {
@@ -61,34 +77,12 @@ sup {
   font-size: 15px;
 }
 
-.emoji,
-.emoji1,
-.emoji2,
-.emoji3,
-.emoji4 {
-  position: relative;
-  font-size: 40px;
-  line-height: 2px;
-}
 .emoji {
-  left: 335px;
+  position: relative;
+  line-height: 2px;
+  bottom: 30px;
+  left: 270px;
 }
-.emoji1 {
-  left: 370px;
-}
-.emoji2 {
-  left: 350px;
-}
-.emoji3 {
-  left: 355px;
-}
-.emoji4 {
-  left: 358px;
-}
-.emoji1.last {
-  margin-bottom: 10px;
-}
-
 .btn.btn-outline-primary {
   position: relative;
   right: 1px;
@@ -104,4 +98,19 @@ sup {
 
 #current-description::first-letter {
   text-transform: uppercase;
+}
+
+.card .other-day {
+  max-height: 70px;
+}
+
+.minMax {
+  position: relative;
+  left: 135px;
+  bottom: 15px;
+}
+
+.changingTime {
+  position: relative;
+  bottom: 15px;
 }

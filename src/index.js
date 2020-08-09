@@ -38,17 +38,16 @@ function showForecast(response) {
     forecast = response.data.list[index];
     forecastElement.innerHTML += `
     <div class="card other-day" >
-   <div class="card-body day">
-    ${Math.round(forecast.main.temp_max)}°/${Math.round(
+    <span class="card-body day">
+    <span class="changingTime"> ${formatHours(forecast.dt * 1000)} </span>
+    <span class="minMax">${Math.round(forecast.main.temp_max)}°/${Math.round(
       forecast.main.temp_min
-    )}°
-     <br />
-    ${formatHours(forecast.dt * 1000)}
-     <span class="emoji4"> <img src="http://openweathermap.org/img/wn/${
+    )}°</span>
+     <span class="emoji"> <img src="http://openweathermap.org/img/wn/${
        forecast.weather[0].icon
      }@2x.png" alt=""> 
     </span>
-   </div>
+   </span>
    </div>
   `;
   }
