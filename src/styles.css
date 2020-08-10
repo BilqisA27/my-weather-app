@@ -3,7 +3,16 @@
 }
 .card-text,
 .date,
-.current {
+.current,
+.sun,
+.current-details,
+.last-updated,
+.card-subtitle,
+.temp-description,
+.emoji,
+.btn.btn-outline-primary,
+.minMax,
+.changingTime {
   position: relative;
 }
 .card-text {
@@ -12,13 +21,11 @@
 .sun {
   font-size: 70px;
   line-height: 15px;
-  position: relative;
   bottom: 50px;
   right: 20px;
 }
 
 .current-details {
-  position: relative;
   bottom: 80px;
 }
 
@@ -30,17 +37,14 @@
 }
 
 .last-updated {
-  position: relative;
   top: -45px;
 }
 
 .card-subtitle {
-  position: relative;
   top: -45px;
 }
 
 .temp-description {
-  position: relative;
   left: 120px;
   top: -90px;
 }
@@ -78,13 +82,11 @@ sup {
 }
 
 .emoji {
-  position: relative;
   line-height: 2px;
   bottom: 30px;
   left: 270px;
 }
 .btn.btn-outline-primary {
-  position: relative;
   right: 1px;
 }
 
@@ -105,12 +107,10 @@ sup {
 }
 
 .minMax {
-  position: relative;
   left: 135px;
   bottom: 15px;
 }
 
 .changingTime {
-  position: relative;
   bottom: 15px;
 }
