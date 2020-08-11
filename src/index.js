@@ -93,12 +93,15 @@ function showCurrentLocation(response) {
   );
   iconElement.setAttribute("alt", `${descriptionNow}`);
 }
+
 function showPosition(position) {
   let apiKey = "adc304e0d775bfcd34cc43d2a3830fc0";
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
   axios.get(`${apiUrl}`).then(showCurrentLocation);
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+  axios.get(`${forecastUrl}`).then(showForecast);
 }
 
 function getPosition() {
